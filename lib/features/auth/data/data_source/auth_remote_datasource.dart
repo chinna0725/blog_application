@@ -88,8 +88,8 @@ class AuthRemoteDataSourceImplimentation implements AuthRemoteDataSource {
             .doc(firebaseAuth.currentUser!.uid)
             .get();
 
-        print(
-            '----------------------user data ${snapshot.data() as Map<String, dynamic>} ');
+        // print(
+        //     '----------------------user data ${snapshot.data() as Map<String, dynamic>} ');
         return UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
       }
       return null;

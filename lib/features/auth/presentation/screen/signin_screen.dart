@@ -2,6 +2,7 @@ import 'package:blog_application/core/commom/widgets/loader.dart';
 import 'package:blog_application/core/utils/show_snackbar.dart';
 import 'package:blog_application/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:blog_application/features/auth/presentation/screen/signup_screen.dart';
+import 'package:blog_application/features/blog/presentation/screens/blog_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +33,6 @@ class _SignInScreenState extends State<SignInScreen> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-
     super.dispose();
   }
 
@@ -46,6 +46,9 @@ class _SignInScreenState extends State<SignInScreen> {
             if (state is AuthFailure) {
               showSnackbar(context, state.msg);
             }
+      // else if(state is AuthSuccess){
+      //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const BlogApp(),), (route) => false)
+      // }
           },
           builder: (context, state) {
             if (state is AuthLoading) {
